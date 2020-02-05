@@ -1,18 +1,15 @@
-package com.peltops.kugel;
+package com.peltops.kugel.service;
 
-import com.peltops.kugel.entity.Kugel;
 import com.peltops.kugel.repository.KugelRepository;
-import com.peltops.kugel.service.KugelService;
-import org.junit.jupiter.api.BeforeEach;
+import com.peltops.kugel.entity.Kugel;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.AdditionalAnswers.returnsFirstArg;
-import static org.mockito.Mockito.any;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -21,12 +18,8 @@ public class KugelServiceTest {
     @Mock
     private KugelRepository kugelRepository;
 
+    @InjectMocks
     private KugelService kugelService;
-
-    @BeforeEach
-    void initTest() {
-        kugelService = new KugelService(this.kugelRepository);
-    }
 
     @Test
     public void shouldCreateAKugel() {
